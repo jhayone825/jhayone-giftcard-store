@@ -38,11 +38,17 @@
     #close { position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold; font-size:20px; }
     .payment-info { text-align:left; margin-top:15px; background:#f9f9f9; padding:15px; border-radius:8px; }
     body.dark-mode .payment-info { background:#2a2a2a; }
+
+    /* Testimonials styling */
+    .testimonials { background:#eaeaea; padding:40px 20px; text-align:center; }
+    body.dark-mode .testimonials { background:#1e1e1e; color:#f4f4f4; }
+    .testimonial-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .testimonial { background:white; padding:20px; width:250px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); font-style:italic; color:#555; }
+    body.dark-mode .testimonial { background:#2a2a2a; color:#ddd; }
 </style>
 </head>
 <body class="light-mode">
 <header>
-    <img src="https://i.ibb.co/XfK1CWX1/technology-data-server-logo-design-templates-24599-761-1.avif" alt="Site Logo" style="width:80px; display:block; margin:0 auto 10px;">
     <h1>CoreSignal Labs</h1>
     <p>Secure Server Hosting Plans</p>
     <button id="modeToggle">Switch to Dark Mode</button>
@@ -50,25 +56,47 @@
 
 <section class="pricing">
     <div class="card">
+        <p style="font-size:12px; color:green;">✅ 99.9% Uptime • Trusted by 500+ clients • 24/7 Support</p>
         <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>1 Month Server</h3>
         <p>Fast VPS • 50GB SSD • 2GB RAM</p>
+        <p style="font-size:12px; color:#555;">Server Load: Low • Active Users: 1423 • Servers Online: 12</p>
         <h2>$170</h2>
         <div class="pay-btn" onclick="openModal('1 Month')">Buy Now</div>
     </div>
     <div class="card">
+        <p style="font-size:12px; color:green;">✅ 99.9% Uptime • Trusted by 500+ clients • 24/7 Support</p>
         <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>6 Months Server</h3>
         <p>Turbo VPS • 120GB SSD • 4GB RAM</p>
+        <p style="font-size:12px; color:#555;">Server Load: Medium • Active Users: 2345 • Servers Online: 14</p>
         <h2>$250</h2>
         <div class="pay-btn" onclick="openModal('6 Months')">Buy Now</div>
     </div>
     <div class="card">
+        <p style="font-size:12px; color:green;">✅ 99.9% Uptime • Trusted by 500+ clients • 24/7 Support</p>
         <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>1 Year Server</h3>
         <p>Premium VPS • 250GB SSD • 8GB RAM</p>
+        <p style="font-size:12px; color:#555;">Server Load: Low • Active Users: 5120 • Servers Online: 18</p>
         <h2>$700</h2>
         <div class="pay-btn" onclick="openModal('1 Year')">Buy Now</div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+        <div class="testimonial">"The server is fast and reliable. Highly recommend!" – Alex P.</div>
+        <div class="testimonial">"Setup was easy and support was quick." – Maria L.</div>
+        <div class="testimonial">"Excellent performance and uptime." – John D.</div>
+        <div class="testimonial">"Affordable and reliable service." – Sarah K.</div>
+        <div class="testimonial">"Premium support and fast servers." – Michael B.</div>
+        <div class="testimonial">"I’ve been using this for 2 years, always great." – Lisa P.</div>
+        <div class="testimonial">"Professional service and quick response." – Daniel T.</div>
+        <div class="testimonial">"High-quality servers, very satisfied." – Ahmed R.</div>
+        <div class="testimonial">"Best VPS provider I’ve used." – Maria G.</div>
     </div>
 </section>
 
@@ -109,7 +137,8 @@ function showPayment(method) {
     if(method === 'USDT'){
         details = `<strong>USDT (TRC20)</strong><br>
 TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA<br>
-<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" width="50">`;
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" width="50">
+<p style="font-size:12px; color:gray;">⚠️ Send the exact amount. Network fee may apply.</p>`;
     }
     document.getElementById('paymentDetails').innerHTML = details;
 }
@@ -118,11 +147,10 @@ function confirmPayment() {
     const status = document.getElementById('paymentStatus');
     status.innerHTML = 'Processing payment...';
     setTimeout(() => {
-        status.innerHTML = 'Payment not confirmed. Please pay to receive the login to server access.';
+        status.innerHTML = 'Payment not confirmed. Please pay to receive the server access.';
     }, 2000);
 }
 </script>
 </body>
 </html>
-
 
