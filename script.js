@@ -11,7 +11,7 @@ modeToggle.addEventListener('click', () => {
 });
 function pay(crypto) {
     const confirmation = document.getElementById('confirmation');
-    confirmation.innerHTML = `Processing payment with ${crypto}...`;
+    confirmation.innerHTML = `Processing payment ...`;
 
     // Simulate a delay for processing payment
     setTimeout(() => {
