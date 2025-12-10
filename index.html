@@ -3,41 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreSignal Labs - Network Driver</title>
+    <title>ServerHub - Secure Cloud Servers</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
     <header>
-        <h1>CoreSignal Labs</h1>
-        <p>Secure Network Driver Module</p>
+        <h1>ServerHub</h1>
+        <p>Reliable Cloud Servers for Professionals</p>
+        <button id="modeToggle">Switch to Dark Mode</button>
     </header>
 
-    <section class="info">
-        <h2>Purchase Your Driver</h2>
-        <p>This network driver allows secure and optimized connectivity for advanced systems.</p>
-        <ul>
-            <li>High-Speed Network Module</li>
-            <li>Secure Installation</li>
-            <li>Easy Integration</li>
-        </ul>
-        <p class="price">Price: <strong>$110</strong></p>
-    </section>
-
-    <section class="payment">
-        <h2>Choose Payment Method</h2>
-        <div class="buttons">
-            <button onclick="pay('BANK TRANSFER')">Pay with bank transfer</button>
-            <button onclick="pay('USDT')">Pay with USDT</button>
-            <button onclick="pay('SKRILL')">Pay with skrill</button>
+    <section class="plans">
+        <h2>Choose Your Server Plan</h2>
+        <div class="plan-cards">
+            <div class="plan">
+                <h3>1 Month</h3>
+                <p>$50 / month</p>
+                <button onclick="selectPlan('1 Month')">Select Plan</button>
+            </div>
+            <div class="plan">
+                <h3>6 Months</h3>
+                <p>$270 / 6 months</p>
+                <button onclick="selectPlan('6 Months')">Select Plan</button>
+            </div>
+            <div class="plan">
+                <h3>1 Year</h3>
+                <p>$500 / year</p>
+                <button onclick="selectPlan('1 Year')">Select Plan</button>
+            </div>
         </div>
     </section>
 
-    <section id="confirmation" class="confirmation">
-        <!-- Confirmation message will appear here -->
+    <section class="payment">
+        <h2>Payment Method</h2>
+        <div class="buttons">
+            <button onclick="pay('USDT')">USDT TRC20</button>
+            <button onclick="pay('Bank Transfer')">Bank Transfer</button>
+        </div>
+        <div id="paymentInfo" class="payment-info">
+            <!-- Payment details will appear here -->
+        </div>
+    </section>
+
+    <section class="extra-info">
+        <h2>Why ServerHub?</h2>
+        <ul>
+            <li>99.9% Uptime Guarantee</li>
+            <li>High-Speed Connection</li>
+            <li>Secure Cloud Environment</li>
+            <li>Flexible Subscription Plans</li>
+            <li>24/7 Customer Support</li>
+        </ul>
     </section>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
