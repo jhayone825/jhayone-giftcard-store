@@ -77,8 +77,6 @@
         <h2>Payment for <span id="planName"></span></h2>
         <p>Select Payment Method:</p>
         <button onclick="showPayment('USDT')">USDT (TRC20)</button>
-        <button onclick="showPayment('Bank Transfer')">Bank Transfer</button>
-        <button onclick="showPayment('Skrill')">Skrill</button>
         <div id="paymentDetails" class="payment-info"></div>
         <button onclick="confirmPayment()">Confirm Payment</button>
         <div id="paymentStatus" style="margin-top:10px;"></div>
@@ -106,23 +104,11 @@ function closeModal() {
 }
 
 function showPayment(method) {
-    let details = '';
     if(method === 'USDT'){
-        details = `<strong>USDT (TRC20)</strong><br>
+        document.getElementById('paymentDetails').innerHTML = `<strong>USDT (TRC20)</strong><br>
 TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA<br>
 <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" width="50">`;
-    } else if(method === 'Bank Transfer'){
-        details = `<strong>Bank Transfer</strong><br>
-Account holder: Mumini Ajadi Afolabi<br>
-Bank Name: Wells Fargo<br>
-Account Number: 40630269955156428<br>
-Account Type: Checking<br>
-Routing number: 121000248<br>
-Address: 580 California Street, San Francisco, CA 94104, US`;
-    } else if(method === 'Skrill'){
-        details = `<strong>Skrill</strong><br>Currently not available`;
     }
-    document.getElementById('paymentDetails').innerHTML = details;
 }
 
 function confirmPayment() {
@@ -135,5 +121,4 @@ function confirmPayment() {
 </script>
 </body>
 </html>
-
 
