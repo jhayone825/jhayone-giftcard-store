@@ -1,166 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ServerCloud Hosting</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoreSignal Labs - Server Plans</title>
 <style>
     body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        transition: 0.3s;
-        background: var(--bg);
-        color: var(--text);
+        font-family: Arial, sans-serif;
+        margin:0;
+        padding:0;
+        transition: background 0.3s, color 0.3s;
     }
-
-    :root {
-        --bg: #ffffff;
-        --text: #222;
-        --card: #f4f4f4;
-    }
-    .dark {
-        --bg: #0e0e0e;
-        --text: #e6e6e6;
-        --card: #1c1c1c;
-    }
-
-    header {
-        padding: 20px;
-        background: linear-gradient(90deg, #007bff, #00d4ff);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .pricing {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 25px;
-        padding: 40px;
-    }
-
+    body.light-mode { background: #f4f4f4; color: #222; }
+    body.dark-mode { background: #121212; color: #f4f4f4; }
+    header { text-align:center; padding:20px; background:#0077cc; color:white; }
+    header button { margin-top:10px; padding:10px 20px; cursor:pointer; }
+    .pricing { display:flex; justify-content:center; flex-wrap:wrap; padding:20px; gap:20px; }
     .card {
-        background: var(--card);
-        border-radius: 12px;
-        padding: 25px;
-        text-align: center;
-        box-shadow: 0 0 20px #00000020;
+        background: white;
+        color: #222;
+        width:300px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        padding:20px;
+        text-align:center;
+        transition: transform 0.3s;
     }
-
-    .pay-btn {
-        background: #007bff;
-        color: #fff;
-        padding: 12px 25px;
-        border-radius: 6px;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 12px;
-    }
-
-    .toggle {
-        background: #fff;
-        padding: 8px 15px;
-        border-radius: 20px;
-        cursor: pointer;
-        color: #333;
-        font-weight: 600;
-    }
-
-    /* Modal */
-    .modal {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: #00000070;
-        display: none;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-content {
-        background: var(--card);
-        padding: 20px;
-        width: 90%;
-        max-width: 400px;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    img.crypto-logo {
-        width: 70px;
-    }
+    body.dark-mode .card { background:#1e1e1e; color:#f4f4f4; box-shadow:0 4px 10px rgba(0,0,0,0.5); }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width:100%; border-radius:10px; margin-bottom:15px; }
+    .pay-btn { background:#0077cc; color:white; padding:10px 20px; cursor:pointer; margin-top:10px; display:inline-block; border-radius:5px; }
+    .pay-btn:hover { background:#005fa3; }
+    #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; }
+    #modal-content { background:white; color:#222; padding:30px; border-radius:10px; width:90%; max-width:500px; text-align:center; position:relative; }
+    body.dark-mode #modal-content { background:#1e1e1e; color:#f4f4f4; }
+    #modal-content button { margin-top:20px; padding:10px 20px; cursor:pointer; border-radius:5px; }
+    #close { position:absolute; top:10px; right:15px; cursor:pointer; font-weight:bold; font-size:20px; }
+    .payment-info { text-align:left; margin-top:15px; background:#f9f9f9; padding:15px; border-radius:8px; }
+    body.dark-mode .payment-info { background:#2a2a2a; }
 </style>
 </head>
-
-<body>
-
+<body class="light-mode">
 <header>
-    <h2>ServerCloud Hosting</h2>
-    <div class="toggle" onclick="toggleTheme()">Dark/Light</div>
+    <h1>CoreSignal Labs</h1>
+    <p>Secure Server Hosting Plans</p>
+    <button id="modeToggle">Switch to Dark Mode</button>
 </header>
 
 <section class="pricing">
     <div class="card">
+        <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>1 Month Server</h3>
         <p>Fast VPS • 50GB SSD • 2GB RAM</p>
         <h2>$15</h2>
-        <div class="pay-btn" onclick="openModal()">Buy Now</div>
+        <div class="pay-btn" onclick="openModal('1 Month')">Buy Now</div>
     </div>
-
     <div class="card">
+        <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>6 Months Server</h3>
         <p>Turbo VPS • 120GB SSD • 4GB RAM</p>
         <h2>$70</h2>
-        <div class="pay-btn" onclick="openModal()">Buy Now</div>
+        <div class="pay-btn" onclick="openModal('6 Months')">Buy Now</div>
     </div>
-
     <div class="card">
+        <img src="https://i.ibb.co/vx5wp88f/Client-and-Server-1024x427.png" alt="Server Image">
         <h3>1 Year Server</h3>
         <p>Premium VPS • 250GB SSD • 8GB RAM</p>
         <h2>$120</h2>
-        <div class="pay-btn" onclick="openModal()">Buy Now</div>
+        <div class="pay-btn" onclick="openModal('1 Year')">Buy Now</div>
     </div>
 </section>
 
-<!-- PAYMENT MODAL -->
-<div class="modal" id="payModal">
-    <div class="modal-content">
-        <h3>Payment Methods</h3>
-
-        <h4>USDT (TRC20)</h4>
-        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" class="crypto-logo">
-        <p><b>TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA</b></p>
-
-        <hr>
-
-        <h4>Bank Transfer (USD Account)</h4>
-        <p><b>Account Name:</b> Mumini Ajadi Afolabi</p>
-        <p><b>Bank:</b> Wells Fargo</p>
-        <p><b>Account Number:</b> 40630269955156428</p>
-        <p><b>Routing:</b> 121000248</p>
-        <p><b>Address:</b> 580 California Street, SF, CA 94104</p>
-
-        <br>
-        <button onclick="closeModal()" style="padding:10px 20px;">Close</button>
+<div id="modal">
+    <div id="modal-content">
+        <span id="close" onclick="closeModal()">&times;</span>
+        <h2>Payment for <span id="planName"></span></h2>
+        <p>Select Payment Method:</p>
+        <button onclick="showPayment('USDT')">USDT (TRC20)</button>
+        <button onclick="showPayment('Bank Transfer')">Bank Transfer</button>
+        <button onclick="showPayment('Skrill')">Skrill</button>
+        <div id="paymentDetails" class="payment-info"></div>
+        <button onclick="confirmPayment()">Confirm Payment</button>
+        <div id="paymentStatus" style="margin-top:10px;"></div>
     </div>
 </div>
 
 <script>
-function toggleTheme() {
-    document.body.classList.toggle("dark");
-}
+const body = document.body;
+const modeToggle = document.getElementById('modeToggle');
+modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode');
+    modeToggle.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+});
 
-function openModal() {
-    document.getElementById("payModal").style.display = "flex";
+function openModal(plan) {
+    document.getElementById('planName').textContent = plan;
+    document.getElementById('paymentDetails').innerHTML = '';
+    document.getElementById('paymentStatus').innerHTML = '';
+    document.getElementById('modal').style.display = 'flex';
 }
 
 function closeModal() {
-    document.getElementById("payModal").style.display = "none";
+    document.getElementById('modal').style.display = 'none';
+}
+
+function showPayment(method) {
+    let details = '';
+    if(method === 'USDT'){
+        details = `<strong>USDT (TRC20)</strong><br>
+TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA<br>
+<img src="https://cryptologos.cc/logos/tether-usdt-logo.png" width="50">`;
+    } else if(method === 'Bank Transfer'){
+        details = `<strong>Bank Transfer</strong><br>
+Account holder: Mumini Ajadi Afolabi<br>
+Bank Name: Wells Fargo<br>
+Account Number: 40630269955156428<br>
+Account Type: Checking<br>
+Routing number: 121000248<br>
+Address: 580 California Street, San Francisco, CA 94104, US`;
+    } else if(method === 'Skrill'){
+        details = `<strong>Skrill</strong><br>Currently not available`;
+    }
+    document.getElementById('paymentDetails').innerHTML = details;
+}
+
+function confirmPayment() {
+    const status = document.getElementById('paymentStatus');
+    status.innerHTML = 'Processing payment...';
+    setTimeout(() => {
+        status.innerHTML = 'Payment not confirmed. Please pay to receive the server access.';
+    }, 2000);
 }
 </script>
-
 </body>
 </html>
 
