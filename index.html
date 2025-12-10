@@ -1,274 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jhayone Gift Card Shop</title>
-  <style>
-    :root{
-      --bg:#f4f4f4;
-      --text:#333;
-      --card:#fff;
-      --btn:#28a745;
-      --btn-hover:#218838;
-    }
-    [data-theme="dark"]{
-      --bg:#121212;
-      --text:#eee;
-      --card:#1e1e1e;
-      --btn:#0d6efd;
-      --btn-hover:#084298;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
-    body{
-      background:var(--bg);
-      color:var(--text);
-      padding:20px;
-      transition:background .8s ease,color .8s ease;
-    }
-
-    header{ text-align:center;margin-bottom:12px }
-    header img{ width:100px;border-radius:50%;margin-bottom:8px;transition:transform .8s ease-in-out }
-    header h1{ font-size:2rem;color:var(--text);letter-spacing:.5px }
-
-    /* STICKY search bar */
-    .search-wrap{
-      position:sticky;
-      top:12px;
-      z-index:999;
-      backdrop-filter: blur(4px);
-      display:flex;
-      justify-content:center;
-      margin-bottom:18px;
-      padding:8px 0;
-    }
-    #search-bar{
-      display:flex;
-      box-shadow:0 2px 8px rgba(0,0,0,.06);
-      border-radius:8px;
-      overflow:hidden;
-      background:var(--card);
-    }
-    #search-bar input{
-      width:320px;
-      padding:10px 12px;
-      border:0;
-      outline:none;
-      font-size:1rem;
-      color:var(--text);
-      background:transparent;
-    }
-    #search-bar button{
-      padding:10px 14px;
-      border:0;
-      background:var(--btn);
-      color:#fff;
-      cursor:pointer;
-      font-weight:600;
-    }
-    #search-bar button:hover{ background:var(--btn-hover) }
-
-    .toggle-btn{
-      position:fixed; right:18px; top:18px;
-      background:var(--btn); color:#fff; border:0; padding:8px 12px; border-radius:8px; cursor:pointer; z-index:1001;
-    }
-    .toggle-btn:hover{ background:var(--btn-hover) }
-
-    .features{
-      display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:10px 0 18px;
-    }
-    .features div{
-      background:var(--card); padding:10px 14px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.06); font-weight:700;
-    }
-
-    .products-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:18px;
-      margin-bottom:32px;
-    }
-    .product-card{
-      background:var(--card); border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.08);
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .product-card:hover{ transform:translateY(-6px); box-shadow:0 8px 18px rgba(0,0,0,.12) }
-    .product-card img{ width:100%; height:150px; object-fit:cover; display:block }
-    .product-info{ padding:12px; text-align:center }
-    .product-info h3{ font-size:0.98rem; margin-bottom:8px; color:var(--text) }
-    .product-info .price{ font-weight:800; color:#28a745; margin-bottom:6px }
-    .product-info .note{ font-size:0.85rem; color:var(--text); opacity:.85 }
-
-    .contact-section{
-      background:var(--card); padding:22px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.06); max-width:720px; margin:0 auto 40px;
-    }
-    .contact-section h2{ text-align:center; margin-bottom:12px }
-    .contact-section form{ display:grid; gap:10px }
-    .contact-section input, .contact-section textarea{
-      padding:10px; border-radius:8px; border:1px solid rgba(0,0,0,.08); font-size:1rem; background:transparent; color:var(--text)
-    }
-    .contact-section button{ padding:10px; border-radius:8px; border:0; background:var(--btn); color:#fff; cursor:pointer; font-weight:700 }
-    .contact-section button:hover{ background:var(--btn-hover) }
-
-    /* animations */
-    @keyframes spinLogo{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
-    .logo-spin{ animation:spinLogo .8s ease-in-out }
-    .fade-theme{ animation:fadeTheme .5s ease-in-out }
-    @keyframes fadeTheme{0%{opacity:.7}50%{opacity:.4}100%{opacity:1}}
-    /* small responsive tweaks */
-    @media (max-width:420px){ #search-bar input{width:180px} header h1{font-size:1.4rem} }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreSignal Labs - Network Driver</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>CoreSignal Labs</h1>
+        <p>Secure Network Driver Module</p>
+    </header>
 
-  <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+    <section class="info">
+        <h2>Purchase Your Driver</h2>
+        <p>This network driver allows secure and optimized connectivity for advanced systems.</p>
+        <ul>
+            <li>High-Speed Network Module</li>
+            <li>Secure Installation</li>
+            <li>Easy Integration</li>
+        </ul>
+        <p class="price">Price: <strong>$100</strong></p>
+    </section>
 
-  <header>
-    <img id="siteLogo" src="https://i.ibb.co/zHQTK8Yv/unnamed.jpg" alt="Jhayone Logo">
-    <h1>Jhayone</h1>
-  </header>
+    <section class="payment">
+        <h2>Choose Payment Method</h2>
+        <div class="buttons">
+            <button onclick="pay('BTC')">Pay with BTC</button>
+            <button onclick="pay('USDT')">Pay with USDT</button>
+            <button onclick="pay('ETH')">Pay with ETH</button>
+        </div>
+    </section>
 
-  <div class="features">
-    <div>✅ 24/7 Service</div>
-    <div>⚡ Instant Delivery</div>
-    <div>🔒 Secure</div>
-    <div>Message Seller</div>
-  </div>
+    <section id="confirmation" class="confirmation">
+        <!-- Confirmation message will appear here -->
+    </section>
 
-  <div class="search-wrap">
-    <div id="search-bar">
-      <input id="searchInput" type="text" placeholder="Search gift cards..." oninput="searchProducts()" />
-      <button onclick="searchProducts()">Search</button>
-    </div>
-  </div>
-
-  <div class="products-container" id="productsContainer"></div>
-
-  <div class="contact-section">
-    <h2>Send a Message</h2>
-    <form onsubmit="sendMessage(event)">
-      <input id="name" type="text" placeholder="Your name" required />
-      <input id="phone" type="text" placeholder="Phone or WhatsApp" required />
-      <input id="subject" type="text" placeholder="Subject (e.g., buy FX gift card)" required />
-      <textarea id="message" rows="4" placeholder="What do you need?" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-
-  <script>
-    // toggle + animations
-    function toggleTheme(){
-      const logo = document.getElementById('siteLogo');
-      const body = document.body;
-      logo.classList.add('logo-spin');
-      body.classList.add('fade-theme');
-      setTimeout(()=>{ logo.classList.remove('logo-spin'); body.classList.remove('fade-theme'); }, 800);
-      if(document.documentElement.getAttribute('data-theme') === 'dark'){
-        document.documentElement.setAttribute('data-theme','light');
-      } else {
-        document.documentElement.setAttribute('data-theme','dark');
-      }
-    }
-
-    // The 24 cards you provided
-    const cards = [
-      {title:'Google Play', image:'https://i.ibb.co/BVhh4vQP/Google-Play.jpg'},
-      {title:'iTunes / Apple', image:'https://i.ibb.co/k69YsrhR/f424791807811a48fb42e1c7f8eb836f.jpg'},
-      {title:'Steam Wallet', image:'https://i.ibb.co/jPk2158C/AQAK2ut-Yeo-D5sg69-CGMQe-Hg-E2-Ba8-Fqr6-DWa-XDLy-Hb6-OTdkmnl-RSC5-GQPx38vf2t-Mjp6bb-Ppg-Acn4-BO267kq.png'},
-      {title:'Xbox Live', image:'https://i.ibb.co/DDtSVQY9/p1-3687296-f4ea65f6.jpg'},
-      {title:'PlayStation', image:'https://i.ibb.co/Mx0VB23q/b4c3ee86d85ae24ad5e7be02c49aa8a2.jpg'},
-      {title:'Nintendo eShop', image:'https://i.ibb.co/bjh2rtyw/1280.jpg'},
-      {title:'Amazon', image:'https://i.ibb.co/YFxFSbKJ/c7610884fb2ec6497ba70fbdbe214634.jpg'},
-      {title:'Razer Gold', image:'https://i.ibb.co/wrhWCSc3/0-MOo945v-Wf-ZLKU5-OF.jpg'},
-{title:'Visa', image:'https://i.ibb.co/qY6kCQnm/500-visa-gift-card.jpg'},
-{title:'eBay', image:'https://i.ibb.co/ynYCjhvm/1916e6c596ec1420e28fbe4fa454bc12.jpg'},
-{title:'Sephora', image:'https://i.ibb.co/rRQ8Ld74/item-3218017.png'},
-
-      {title:'Walmart', image:'https://i.ibb.co/9mdzgJB5/16010050190cc98c552e26e8f2939e4ba78483b8af.png'},
-      {title:'Best Buy', image:'https://i.ibb.co/Z6ycYtnF/57.png'},
-      {title:'Netflix', image:'https://i.ibb.co/1GDHtLrk/Netflix-gift-cards-1024x601-1024x601.png'},
-      {title:'Spotify Premium', image:'https://i.ibb.co/zW9dP5W0/1b27da32d884d5db90fbbf0f5ab54f86.jpg'},
-      {title:'Hulu', image:'https://i.ibb.co/Tq82sgK3/a58f5983e920c7fb612ff6e1bbb71a5c.jpg'},
-      {title:'Disney', image:'https://i.ibb.co/yBMqW6Zr/original.png'},
-      {title:'HBO Max', image:'https://i.ibb.co/x82xzgXV/8242190751f1a145a7053dad9f106be5.jpg'},
-      {title:'Google Stadia', image:'https://i.ibb.co/rGXgfGVg/Google-Stadia-price-and-availability-750x422.jpg'},
-      {title:'Roblox', image:'https://i.ibb.co/WNRbzQmT/prime-day-roblox-gift-card-deal-1721138283214.jpg'},
-      {title:'Epic Games', image:'https://i.ibb.co/zVJc6p80/maxresdefault-8.jpg'},
-      {title:'Valve', image:'https://i.ibb.co/LdQ5ypyn/Gift-Card-Product-11.png'},
-      {title:'Origin', image:'https://i.ibb.co/7q7Cgy1/1584825786.jpg'},
-      {title:'Google Play', image:'https://i.ibb.co/BVhh4vQP/Google-Play.jpg'},
-      {title:'iTunes / Apple', image:'https://i.ibb.co/k69YsrhR/f424791807811a48fb42e1c7f8eb836f.jpg'},
-      {title:'Steam Wallet', image:'https://i.ibb.co/jPk2158C/AQAK2ut-Yeo-D5sg69-CGMQe-Hg-E2-Ba8-Fqr6-DWa-XDLy-Hb6-OTdkmnl-RSC5-GQPx38vf2t-Mjp6bb-Ppg-Acn4-BO267kq.png'},
-      {title:'Xbox Live', image:'https://i.ibb.co/DDtSVQY9/p1-3687296-f4ea65f6.jpg'},
-      {title:'PlayStation', image:'https://i.ibb.co/Mx0VB23q/b4c3ee86d85ae24ad5e7be02c49aa8a2.jpg'},
-      {title:'Nintendo eShop', image:'https://i.ibb.co/bjh2rtyw/1280.jpg'},
-      {title:'Amazon', image:'https://i.ibb.co/YFxFSbKJ/c7610884fb2ec6497ba70fbdbe214634.jpg'},
-      {title:'Walmart', image:'https://i.ibb.co/9mdzgJB5/16010050190cc98c552e26e8f2939e4ba78483b8af.png'},
-      {title:'Best Buy', image:'https://i.ibb.co/Z6ycYtnF/57.png'},
-      {title:'Netflix', image:'https://i.ibb.co/1GDHtLrk/Netflix-gift-cards-1024x601-1024x601.png'},
-      {title:'Spotify Premium', image:'https://i.ibb.co/zW9dP5W0/1b27da32d884d5db90fbbf0f5ab54f86.jpg'},
-      {title:'Hulu', image:'https://i.ibb.co/Tq82sgK3/a58f5983e920c7fb612ff6e1bbb71a5c.jpg'},
-      {title:'Disney', image:'https://i.ibb.co/yBMqW6Zr/original.png'},
-      {title:'GOG', image:'https://i.ibb.co/Q3PL8q7C/349f325101.png'},
-      {title:'Battle.net', image:'https://i.ibb.co/3mBfHX2c/p1-3231529-2815b69e.png'},
-      {title:'Ubisoft', image:'https://i.ibb.co/39GKWzjW/apple-of-eden-1.jpg'},
-      {title:'Twitch', image:'https://i.ibb.co/twBycJJv/twitch-EUR25-173.jpg'},
-      {title:'Minecraft', image:'https://i.ibb.co/rRM2XTcD/ey-Jid-WNr-ZXQi-Oi-Jpb-WFn-ZXMt-Y2-Fycnkxc3-Qtc-HJv-ZHVjd-HMi-LCJr-ZXki-Oi-Jl-MDVh-OGI3-My00-ODBl-LT.webp'}
-    ];
-
-    // Titles to duplicate
-    const toDuplicate = new Set(['Steam Wallet','Google Play','iTunes / Apple','Xbox Live','Roblox']);
-
-    // Build displayedProducts with duplicates for selected cards
-    const displayedProducts = [];
-    cards.forEach(c => {
-      displayedProducts.push({...c});
-      if(toDuplicate.has(c.title)){
-        displayedProducts.push({...c}); // duplicate once
-      }
-    });
-
-    // Render function
-    const productsContainer = document.getElementById('productsContainer');
-    function displayProducts(items){
-      productsContainer.innerHTML = '';
-      items.forEach(p=>{
-        const div = document.createElement('div');
-        div.className = 'product-card';
-        div.innerHTML = `
-          <img src="${p.image}" alt="${p.title}">
-          <div class="product-info">
-            <h3>${p.title}</h3>
-            <div class="price">$1 - $1000</div>
-            <div class="note">Instant code</div>
-          </div>
-        `;
-        productsContainer.appendChild(div);
-      });
-    }
-
-    // initial render
-    displayProducts(displayedProducts);
-
-    // search
-    function searchProducts(){
-      const q = document.getElementById('searchInput').value.trim().toLowerCase();
-      if(!q){ displayProducts(displayedProducts); return; }
-      const filtered = displayedProducts.filter(p => p.title.toLowerCase().includes(q));
-      displayProducts(filtered);
-    }
-
-    // WhatsApp contact
-    function sendMessage(e){
-      e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('name').value);
-      const phone = encodeURIComponent(document.getElementById('phone').value);
-      const subject = encodeURIComponent(document.getElementById('subject').value);
-      const message = encodeURIComponent(document.getElementById('message').value);
-      const text = `Name: ${name}%0APhone: ${phone}%0ASubject: ${subject}%0AMessage: ${message}`;
-      const whatsappNumber = '+15082925909';
-      window.open(`https://wa.me/${whatsappNumber.replace('+','') }?text=${text}`, '_blank');
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
