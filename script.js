@@ -15,18 +15,18 @@ function pay(crypto) {
 
     // Simulate a delay for processing payment
     setTimeout(() => {
-        confirmation.innerHTML = ` USD account details. TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA
+        confirmation.innerHTML = ` USD account details.usdt trc20> TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA
 
 
-usdt trc20
-
-
+BANK TRANSFER
 Account holder 
 Mumini Ajadi Afolabi 
  
+
 Bank Name 
 Wells Fargo 
  
+
 Account Number 
 40630269955156428 
  
