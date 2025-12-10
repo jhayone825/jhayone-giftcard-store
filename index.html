@@ -6,10 +6,11 @@
     <title>CoreSignal Labs - Network Driver</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
     <header>
         <h1>CoreSignal Labs</h1>
         <p>Secure Network Driver Module</p>
+        <button id="modeToggle">Switch to Dark Mode</button>
     </header>
 
     <section class="info">
@@ -26,9 +27,9 @@
     <section class="payment">
         <h2>Choose Payment Method</h2>
         <div class="buttons">
-            <button onclick="pay('BTC')">Pay with BTC</button>
-            <button onclick="pay('USDT')">Pay with USDT</button>
-            <button onclick="pay('ETH')">Pay with ETH</button>
+            <button onclick="pay('Skrill')">Pay with Skrill</button>
+            <button onclick="pay('BTC')">Pay with Crypto</button>
+            <button onclick="pay('Bank Transfer')">Pay with Bank Transfer</button>
         </div>
     </section>
 
@@ -39,5 +40,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
