@@ -1,42 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreSignal Labs - Network Driver</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Driver Utility</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #111;
+      transition: 0.3s;
+    }
+
+    .dark {
+      background: #121212;
+      color: #fff;
+    }
+
+    header {
+      background: #0a84ff;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .toggle-btn {
+      padding: 10px 15px;
+      background: #0a84ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .payment-box {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .dark .payment-box {
+      background: #1e1e1e;
+      box-shadow: 0 3px 8px rgba(255,255,255,0.05);
+    }
+
+    .payment-box:hover {
+      transform: scale(1.01);
+    }
+
+    .details {
+      display: none;
+      padding: 15px;
+      margin-top: 10px;
+      background: #eaeaea;
+      border-radius: 6px;
+    }
+
+    .dark .details {
+      background: #2b2b2b;
+    }
+  </style>
 </head>
-<body class="light-mode">
-    <header>
-        <h1>CoreSignal Labs</h1>
-        <p>Secure Network Driver Module</p>
-        <button id="modeToggle">Switch to Dark Mode</button>
-    </header>
+<body>
 
-    <section class="info">
-        <h2>Purchase Your Driver</h2>
-        <p>This network driver allows secure and optimized connectivity for advanced systems.</p>
-        <ul>
-            <li>High-Speed Network Module</li>
-            <li>Secure Installation</li>
-            <li>Easy Integration</li>
-        </ul>
-        <p class="price">Price: <strong>$100</strong></p>
-    </section>
+<header>Secure Driver Utility Purchase</header>
 
-    <section class="payment">
-        <h2>Choose Payment Method</h2>
-        <div class="buttons">
-            <button onclick="pay('Skrill')">Pay with Skrill</button>
-            <button onclick="pay('BTC')">Pay with Crypto</button>
-            <button onclick="pay('Bank Transfer')">Pay with Bank Transfer</button>
-        </div>
-    </section>
+<div class="container">
 
-    <section id="confirmation" class="confirmation">
-        <!-- Confirmation message will appear here -->
-    </section>
+  <button id="modeToggle" class="toggle-btn">Toggle Dark/Light Mode</button>
 
-    <script src="script.js"></script>
+  <h2>Choose Payment Method</h2>
+
+  <!-- CRYPTO PAYMENT -->
+  <div class="payment-box" onclick="toggleDetails('crypto')">
+    <strong>USDT TRC20 (Crypto)</strong>
+    <div id="crypto" class="details">
+      <p><strong>USDT (TRC20) Wallet:</strong></p>
+      <p>TAP9gzMNVT3wspcAaNzg5dP4AHs2Kh3mSA</p>
+    </div>
+  </div>
+
+  <!-- BANK TRANSFER -->
+  <div class="payment-box" onclick="toggleDetails('bank')">
+    <strong>Bank Transfer (USD)</strong>
+    <div id="bank" class="details">
+      <p><strong>Account Holder:</strong> Mumini Ajadi Afolabi</p>
+      <p><strong>Bank Name:</strong> Wells Fargo</p>
+      <p><strong>Account Number:</strong> 40630269955156428</p>
+      <p><strong>Account Type:</strong> Checking</p>
+      <p><strong>Routing Number:</strong> 121000248</p>
+      <p><strong>Address:</strong> 580 California Street, San Francisco, CA 94104, US</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const body = document.body;
+  const modeToggle = document.getElementById('modeToggle');
+
+  modeToggle.onclick = () => {
+    body.classList.toggle('dark');
+  };
+
+  function toggleDetails(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 </body>
 </html>
+
